@@ -41,6 +41,8 @@ eg. \`/is-buffer\` to build the \`is-buffer\` package as AMD
 		console.log(warnings.map(w => w.message));
 	}
 
+	res.setHeader('cache-control', fetchedPkg.headers['cache-control']);
+	res.setHeader('content-type', fetchedPkg.headers['content-type']);
 	res
 		.status(200)
 		.end(built);
