@@ -16,7 +16,9 @@ const buildModule = require('../lib/build-module');
 	// const built = await buildModule('lodash@4.17.15/camelCase.js');
 	// console.log({ built });
 
-	const built = await buildModule('@babel/code-frame');
-	console.log({ built });
+	// const built = await buildModule('@babel/code-frame');
+	// console.log({ built });
 
+	const built = await buildModule('better-ajv-errors@0.6.7/lib/modern/index.js');
+	console.log({ built });
 })().catch(console.log);
