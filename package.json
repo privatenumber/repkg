@@ -16,17 +16,14 @@
     "url": "https://github.com/privatenumber/repkg/issues"
   },
   "homepage": "https://github.com/privatenumber/repkg#readme",
-  "devDependencies": {
-    "jest": "^25.4.0",
-    "now": "^18.0.0"
-  },
   "dependencies": {
     "fs-router-patch": "github:privatenumber/fs-router-patch",
-    "got": "^10.7.0",
-    "lodash": "^4.17.15",
+    "got": "^11.0.2",
     "memfs": "^3.1.2",
     "path-to-regexp": "^6.1.0",
-    "process": "^0.11.10",
-    "webpack": "^5.0.0-beta.13"
+    "webpack": "^5.0.0-beta.15"
+  },
+  "devDependencies": {
+    "jest": "^25.4.0"
   }
 }

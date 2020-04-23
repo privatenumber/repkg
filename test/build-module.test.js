@@ -19,6 +19,9 @@ const buildModule = require('../lib/build-module');
 	// const built = await buildModule('@babel/code-frame');
 	// console.log({ built });
 
-	const built = await buildModule('better-ajv-errors@0.6.7/lib/modern/index.js');
-	console.log({ built });
+	// const built = await buildModule('better-ajv-errors@0.6.7/lib/modern/index.js');
+	// console.log({ built });
+
+	// const built = await buildModule('uuid@3.2.1/v1');
+	// console.log({ built });
 })().catch(console.log);
