@@ -13,7 +13,10 @@ const buildModule = require('../lib/build-module');
 	// const built = await buildModule('is-buffer@2.0.4');
 	// console.log({ built });
 
-	const built = await buildModule('lodash@4.17.15/camelCase.js');
+	// const built = await buildModule('lodash@4.17.15/camelCase.js');
+	// console.log({ built });
+
+	const built = await buildModule('@babel/code-frame');
 	console.log({ built });
 
 })().catch(console.log);
