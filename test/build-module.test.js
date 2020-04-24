@@ -7,8 +7,8 @@ const buildModule = require('../lib/build-module');
 	// const built = await buildModule('vue@latest');
 	// console.log({ built });
 
-	// const built = await buildModule('pretty-ms@6.0.1');
-	// console.log({ built });
+	const built = await buildModule('pretty-ms@6.0.1');
+	console.log({ built });
 
 	// const built = await buildModule('is-buffer@2.0.4');
 	// console.log({ built });
