@@ -3,20 +3,44 @@ const assert = require('assert');
 
 (async () => {
 	const modules = [
-		'parse-ms@2.1.0',
-		'vue@latest',
-		'pretty-ms@6.0.1',
-		'is-buffer@2.0.4',
-		'lodash@4.17.15/camelCase.js',
-		'@babel/code-frame',
+		// 'parse-ms@2.1.0',
+		// 'vue@latest',
+		// 'is-buffer@2.0.4',
+		// 'pretty-ms@6.0.1',
+		// 'lodash@4.17.15/camelCase.js',
+		// 'core-util-is@1.0.0'
+		// '@babel/code-frame',
+		// 'randomfill@1.0.3',
+		// 'randombytes@2.0.0',
+
+
+
+
+
 		// 'better-ajv-errors@0.6.7/lib/modern/index.js',
-		// 'uuid@3.2.1/v1'
+		// 'uuid@3.2.1/v1',
+		// 'create-hash@1.1.0',
+		// 'readable-stream@3.5.0',
+		// 'stream-browserify@2.0.1',
+
+		// 'readable-stream@3.6.0',
+		// 'readable-stream@2.0.2',
+		'readable-stream@2.0.2/duplex.js',
+
+		// 'readable-stream@2.0.2/passthrough.js',
+		// 'readable-stream@2.0.2/writable.js',
+		// 'readable-stream@2.0.2/transform.js',
+		// 'readable-stream@2.0.2/readable.js',
+
 	];
 
 	for (const moduleName of modules) {
 		const built = await buildModule(moduleName);
 		assert(built.built.length > 100, `${moduleName} build is too small`);
-		console.log('Built', moduleName);
+		console.log('✅ Built', moduleName);
 	}
 
-})().catch(console.log);
+})().catch((err) => {
+
+	console.log(err)
+});

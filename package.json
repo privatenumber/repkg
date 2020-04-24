@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -20,6 +20,7 @@
     "chalk": "^4.0.0",
     "fs-router-patch": "github:privatenumber/fs-router-patch",
     "got": "^10.7.0",
+    "keyv": "^4.0.0",
     "log-reactive": "github:privatenumber/log-reactive",
     "memfs": "^3.1.2",
     "path-to-regexp": "^6.1.0",
