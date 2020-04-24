@@ -16,6 +16,7 @@ const assert = require('assert');
 	for (const moduleName of modules) {
 		const built = await buildModule(moduleName);
 		assert(built.built.length > 100, `${moduleName} build is too small`);
+		console.log('Built', moduleName);
 	}
 
 })().catch(console.log);
