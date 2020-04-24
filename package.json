@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/privatenumber/repkg#readme",
   "dependencies": {
+    "chalk": "^4.0.0",
     "fs-router-patch": "github:privatenumber/fs-router-patch",
     "log-reactive": "github:privatenumber/log-reactive",
     "got": "^10.7.0",
@@ -25,7 +26,6 @@
     "webpack": "^5.0.0-beta.15"
   },
   "devDependencies": {
-    "chalk": "^4.0.0",
     "jest": "^25.4.0"
   }
 }
