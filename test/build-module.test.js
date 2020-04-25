@@ -26,12 +26,10 @@ const assert = require('assert');
 		// 'readable-stream@3.6.0',
 		// 'readable-stream@2.0.2',
 		'readable-stream@2.0.2/duplex.js',
-
 		// 'readable-stream@2.0.2/passthrough.js',
 		// 'readable-stream@2.0.2/writable.js',
 		// 'readable-stream@2.0.2/transform.js',
 		// 'readable-stream@2.0.2/readable.js',
-
 	];
 
 	for (const moduleName of modules) {
