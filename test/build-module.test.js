@@ -9,7 +9,7 @@ const assert = require('assert');
 		// 'pretty-ms@6.0.1',
 		// 'lodash@4.17.15/camelCase.js',
 		// 'core-util-is@1.0.0'
-		// '@babel/code-frame',
+		'@babel/code-frame',
 		// 'randomfill@1.0.3',
 		// 'randombytes@2.0.0',
 		// 'create-hash@1.1.0',
