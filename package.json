@@ -20,6 +20,7 @@
     "chalk": "^4.0.0",
     "fs-router-patch": "github:privatenumber/fs-router-patch",
     "got": "^10.7.0",
+    "hash-sum": "^2.0.0",
     "keyv": "^4.0.0",
     "log-reactive": "github:privatenumber/log-reactive",
     "memfs": "^3.1.2",
