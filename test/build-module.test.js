@@ -6,10 +6,10 @@ const assert = require('assert');
 		// 'parse-ms@2.1.0',
 		// 'vue@latest',
 		// 'is-buffer@2.0.4',
-		// 'pretty-ms@6.0.1',
+		'pretty-ms@6.0.1',
 		// 'lodash@4.17.15/camelCase.js',
-		// 'core-util-is@1.0.0'
-		'@babel/code-frame',
+		// 'core-util-is@1.0.0',
+		// '@babel/code-frame',
 		// 'randomfill@1.0.3',
 		// 'randombytes@2.0.0',
 		// 'create-hash@1.1.0',

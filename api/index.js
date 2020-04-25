@@ -1,9 +1,10 @@
+const url = require('url');
 const gotUnpkg = require('../lib/got-unpkg');
 const buildModule = require('../lib/build-module');
-const url = require('url');
+const parseUnpkgPath = require('../lib/util/parse-unpkg-path');
 
 module.exports = async (req, res) => {
-	const pkgPath = req.url.slice(1);
+	const pkgPath = url.parse(req.url).pathname.slice(1);
 
 	if (!pkgPath) {
 		return res.end(`
@@ -38,7 +39,11 @@ eg. \`/is-buffer\` to build the \`is-buffer\` package as AMD
 		}).end();
 	}
 
-	const { err, warnings, built } = await buildModule(pkgPath).catch(err => ({ err }));
+	const unpkgUrl = parseUnpkgPath(fetchedPkg.url);
+	const { err, warnings, built } = await buildModule(unpkgUrl.moduleName, {
+		entry: unpkgUrl.filePath,
+		output: req.query,
+	}).catch(err => ({ err }));
 
 	if (err) {
 		return res
