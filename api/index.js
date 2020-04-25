@@ -1,5 +1,6 @@
 const gotUnpkg = require('../lib/got-unpkg');
 const buildModule = require('../lib/build-module');
+const url = require('url');
 
 module.exports = async (req, res) => {
 	const pkgPath = req.url.slice(1);
@@ -14,19 +15,27 @@ eg. \`/is-buffer\` to build the \`is-buffer\` package as AMD
 	}
 
 	const fetchedPkg = await gotUnpkg(pkgPath);
+	const fetchedPkgUrl = url.parse(fetchedPkg.url);
 
 	// Follow redirect
 	if (fetchedPkg.redirectUrls.length > 0) {
 		return res.writeHead(302, {
-			Location: fetchedPkg.url.replace('https://unpkg.com', ''),
+			Location: fetchedPkgUrl.path,
 		}).end();
 	}
 
-	// Not found
+	// Not 200
 	if (fetchedPkg.statusCode !== 200) {
 		return res
 			.status(fetchedPkg.statusCode)
 			.end(fetchedPkg.body);
+	}
+
+	// If Browse, redirect to UNPKG
+	if (fetchedPkgUrl.path.startsWith('/browse')) {
+		return res.writeHead(302, {
+			Location: fetchedPkg.url,
+		}).end();
 	}
 
 	const { err, warnings, built } = await buildModule(pkgPath).catch(err => ({ err }));
