@@ -40,7 +40,7 @@ eg. \`/is-buffer\` to build the \`is-buffer\` package as AMD
 	}
 
 	const unpkgUrl = parseUnpkgPath(fetchedPkg.url);
-	const { err, warnings, built } = await buildModule(unpkgUrl.moduleName, {
+	const { err, warnings, code } = await buildModule(unpkgUrl.moduleName, {
 		entry: unpkgUrl.filePath,
 		output: req.query,
 	}).catch(err => ({ err }));
@@ -59,5 +59,5 @@ eg. \`/is-buffer\` to build the \`is-buffer\` package as AMD
 	res.setHeader('content-type', fetchedPkg.headers['content-type']);
 	res
 		.status(200)
-		.end(built);
+		.end(code);
 };
