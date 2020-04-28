@@ -17,17 +17,10 @@
   },
   "homepage": "https://github.com/privatenumber/repkg#readme",
   "dependencies": {
-    "chalk": "^4.0.0",
-    "fs-router-patch": "github:privatenumber/fs-router-patch",
     "got": "^10.7.0",
-    "hash-sum": "^2.0.0",
     "keyv": "^4.0.0",
-    "log-reactive": "github:privatenumber/log-reactive",
     "memfs": "^3.1.2",
-    "path-to-regexp": "^6.1.0",
+    "unpkg-fs": "github:privatenumber/unpkg-fs",
     "webpack": "^5.0.0-beta.15"
-  },
-  "devDependencies": {
-    "jest": "^25.4.0"
   }
 }
