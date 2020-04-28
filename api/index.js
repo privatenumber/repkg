@@ -50,7 +50,7 @@ eg. \`/is-buffer\` to build the \`is-buffer\` package as AMD
 			.json(err.errors);
 	}
 
-	if (warnings) {
+	if (warnings.length) {
 		console.log(pkgId, warnings.map(w => w.message));
 	}
 
