@@ -38,8 +38,9 @@ eg. \`/is-buffer\` to build the \`is-buffer\` package as AMD
 		}).end();
 	}
 
-	const { err, warnings, code } = await buildModule(fetchedPkg.resUrlParsed.pkgId, {
-		entry: fetchedPkg.resUrlParsed.filePath,
+	const { pkgId, filePath } = fetchedPkg.resUrlParsed;
+	const { err, warnings, code } = await buildModule(pkgId, {
+		entry: filePath,
 		output: req.query,
 	}).catch(err => ({ err }));
 
@@ -50,7 +51,7 @@ eg. \`/is-buffer\` to build the \`is-buffer\` package as AMD
 	}
 
 	if (warnings) {
-		console.log(warnings.map(w => w.message));
+		console.log(pkgId, warnings.map(w => w.message));
 	}
 
 	res.setHeader('cache-control', fetchedPkg.headers['cache-control']);
