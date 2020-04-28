@@ -1,7 +1,6 @@
 const url = require('url');
-const gotUnpkg = require('../lib/got-unpkg');
+const gotUnpkg = require('unpkg-fs/lib/got-unpkg');
 const buildModule = require('../lib/build-module');
-const parseUnpkgPath = require('../lib/util/parse-unpkg-path');
 
 module.exports = async (req, res) => {
 	const pkgPath = url.parse(req.url).pathname.slice(1);
@@ -15,7 +14,7 @@ eg. \`/is-buffer\` to build the \`is-buffer\` package as AMD
 `.trim());
 	}
 
-	const fetchedPkg = await gotUnpkg(pkgPath);
+	const fetchedPkg = await gotUnpkg(pkgPath, { throwHttpErrors: false  });
 	const fetchedPkgUrl = url.parse(fetchedPkg.url);
 
 	// Follow redirect
@@ -39,9 +38,8 @@ eg. \`/is-buffer\` to build the \`is-buffer\` package as AMD
 		}).end();
 	}
 
-	const unpkgUrl = parseUnpkgPath(fetchedPkg.url);
-	const { err, warnings, code } = await buildModule(unpkgUrl.moduleName, {
-		entry: unpkgUrl.filePath,
+	const { err, warnings, code } = await buildModule(fetchedPkg.resUrlParsed.pkgId, {
+		entry: fetchedPkg.resUrlParsed.filePath,
 		output: req.query,
 	}).catch(err => ({ err }));
 

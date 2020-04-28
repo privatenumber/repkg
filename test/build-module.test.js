@@ -7,50 +7,46 @@ describe('No dependencies', () => {
 		expect(built.code.toString().length).toBeGreaterThan(100);
 	});
 
-	test('is-buffer', async () => {
-		const built = await buildModule('is-buffer@2.0.4');
-		expect(built.warnings.length).toBe(0);
-		expect(built.code.toString().length).toBeGreaterThan(100);
-	});
+// 	test('is-buffer', async () => {
+// 		const built = await buildModule('is-buffer@2.0.4');
+// 		expect(built.warnings.length).toBe(0);
+// 		expect(built.code.toString().length).toBeGreaterThan(100);
+// 	});
 
-	test('vue', async () => {
-		const built = await buildModule('vue@2.6.11');
-		expect(built.warnings.length).toBe(3);
-		expect(built.code.toString().length).toBeGreaterThan(100);
-	});
+// 	test('vue', async () => {
+// 		const built = await buildModule('vue@2.6.11');
+// 		expect(built.warnings.length).toBe(3);
+// 		expect(built.code.toString().length).toBeGreaterThan(100);
+// 	});
 
-	test('core-util-is', async () => {
-		const built = await buildModule('core-util-is@1.0.0');
-		expect(built.warnings.length).toBe(0);
-		expect(built.code.toString().length).toBeGreaterThan(100);
-	});
+// 	test('core-util-is', async () => {
+// 		const built = await buildModule('core-util-is@1.0.0');
+// 		expect(built.warnings.length).toBe(0);
+// 		expect(built.code.toString().length).toBeGreaterThan(100);
+// 	});
 
 
-	test('lodash', async () => {
-		const built = await buildModule('lodash@4.17.15', {
-			entry: '/camelCase.js',
-		});
-		expect(built.warnings.length).toBe(0);
-		expect(built.code.toString().length).toBeGreaterThan(100);
-	});
+// 	test('lodash', async () => {
+// 		const built = await buildModule('lodash@4.17.15', {
+// 			entry: '/camelCase.js',
+// 		});
+// 		expect(built.warnings.length).toBe(0);
+// 		expect(built.code.toString().length).toBeGreaterThan(100);
+// 	});
 });
 
-
 describe('Multiple dependencies', () => {
-	test('pretty-ms', async () => {
-		const built = await buildModule('pretty-ms@6.0.1');
-		expect(built.warnings.length).toBe(0);
-		expect(built.code.toString().length).toBeGreaterThan(100);
-	});
+	// test('pretty-ms', async () => {
+	// 	const built = await buildModule('pretty-ms@6.0.1');
+	// 	expect(built.warnings.length).toBe(0);
+	// 	expect(built.code.toString().length).toBeGreaterThan(100);
+	// });
 
 	// test('@babel/code-frame', async () => {
 	// 	const built = await buildModule('@babel/code-frame');
 	// 	expect(built.warnings.length).toBe(0);
 	// 	expect(built.code.toString().length).toBeGreaterThan(100);
 	// });
-
-
-
 });
 
 
