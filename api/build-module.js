@@ -11,7 +11,7 @@ module.exports = async (req, res) => {
 	// Follow redirect
 	if (fetchedPkg.redirectUrls.length > 0) {
 		return res.writeHead(302, {
-			Location: fetchedPkgUrl.path,
+			Location: fetchedPkgUrl.path + (new URL(req.url, 'https://parse/').search),
 		}).end();
 	}
 
@@ -30,7 +30,7 @@ module.exports = async (req, res) => {
 		// If source map
 		|| fetchedPkgUrl.path.endsWith('.map')
 
-		// If no CJS and has AMD
+		// If AMD (and has no CJS calls)
 		|| isAMD(fetchedPkg.body)
 	) {
 		return res.writeHead(302, {
