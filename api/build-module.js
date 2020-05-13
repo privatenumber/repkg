@@ -2,6 +2,8 @@ const url = require('url');
 const gotUnpkg = require('unpkg-fs/lib/got-unpkg');
 const buildModule = require('../lib/build-module');
 
+const isAMD = /define\(/;
+
 module.exports = async (req, res) => {
 	const pkgPath = url.parse(req.url).pathname.slice(1);
 	const fetchedPkg = await gotUnpkg(pkgPath, { throwHttpErrors: false  });
@@ -21,8 +23,17 @@ module.exports = async (req, res) => {
 			.end(fetchedPkg.body);
 	}
 
-	// If Browse, redirect to UNPKG
-	if (fetchedPkgUrl.path.startsWith('/browse')) {
+	// Redirect to UNPKG
+	if (
+		// If Browse
+		fetchedPkgUrl.path.startsWith('/browse')
+
+		// If source map
+		|| fetchedPkgUrl.path.endsWith('.map')
+
+		// If already AMD
+		|| isAMD.test(fetchedPkg.body)
+	) {
 		return res.writeHead(302, {
 			Location: fetchedPkg.url,
 		}).end();
