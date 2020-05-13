@@ -2,11 +2,15 @@
   "version": 2,
   "routes": [
     {
+      "src": "/",
+      "dest": "/api/serve-landing"
+    },
+    {
       "headers": {
         "Access-Control-Allow-Origin": "*"
       },
       "src": "/.*",
-      "dest": "/api/index.js"
+      "dest": "/api/build-module"
     }
   ]
 }
