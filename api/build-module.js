@@ -4,16 +4,6 @@ const buildModule = require('../lib/build-module');
 
 module.exports = async (req, res) => {
 	const pkgPath = url.parse(req.url).pathname.slice(1);
-
-	if (!pkgPath) {
-		return res.end(`
-# REPKG
-Pass in an UNPKG path to re-build as AMD
-
-eg. \`/is-buffer\` to build the \`is-buffer\` package as AMD
-`.trim());
-	}
-
 	const fetchedPkg = await gotUnpkg(pkgPath, { throwHttpErrors: false  });
 	const fetchedPkgUrl = url.parse(fetchedPkg.url);
 
