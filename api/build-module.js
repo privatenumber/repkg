@@ -3,25 +3,17 @@ const gotUnpkg = require('unpkg-fs/lib/got-unpkg');
 const buildModule = require('../lib/build-module');
 
 module.exports = async (req, res) => {
+
+
+
 	const pkgPath = url.parse(req.url).pathname.slice(1);
 
-	if (!pkgPath) {
-		return res.end(`
-# REPKG
-Pass in an UNPKG path to re-build as AMD
-
-eg. \`/is-buffer\` to build the \`is-buffer\` package as AMD
-`.trim());
-	}
-
 	const fetchedPkg = await gotUnpkg(pkgPath, { throwHttpErrors: false  });
-	const fetchedPkgUrl = url.parse(fetchedPkg.url);
+	const { path: unpkgPath } = url.parse(fetchedPkg.url);
 
 	// Follow redirect
 	if (fetchedPkg.redirectUrls.length > 0) {
-		return res.writeHead(302, {
-			Location: fetchedPkgUrl.path,
-		}).end();
+		return res.writeHead(302, { Location: unpkgPath }).end();
 	}
 
 	// Not 200
@@ -32,10 +24,8 @@ eg. \`/is-buffer\` to build the \`is-buffer\` package as AMD
 	}
 
 	// If Browse, redirect to UNPKG
-	if (fetchedPkgUrl.path.startsWith('/browse')) {
-		return res.writeHead(302, {
-			Location: fetchedPkg.url,
-		}).end();
+	if (unpkgPath.startsWith('/browse')) {
+		return res.writeHead(302, { Location: fetchedPkg.url }).end();
 	}
 
 	const { pkgId, filePath } = fetchedPkg.resUrlParsed;
