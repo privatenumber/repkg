@@ -1,9 +1,7 @@
 const url = require('url');
 const gotUnpkg = require('unpkg-fs/lib/got-unpkg');
 const buildModule = require('../lib/build-module');
-
-const hasCJS = /require\(/;
-const isAMD = /define\(/;
+const isAMD = require('../lib/is-amd');
 
 module.exports = async (req, res) => {
 	const pkgPath = url.parse(req.url).pathname.slice(1);
@@ -33,7 +31,7 @@ module.exports = async (req, res) => {
 		|| fetchedPkgUrl.path.endsWith('.map')
 
 		// If no CJS and has AMD
-		|| (!hasCJS.test(fetchedPkg.body) && isAMD.test(fetchedPkg.body))
+		|| isAMD(fetchedPkg.body)
 	) {
 		return res.writeHead(302, {
 			Location: fetchedPkg.url,
