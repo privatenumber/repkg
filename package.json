@@ -22,6 +22,7 @@
     "keyv": "^4.0.0",
     "memfs": "^3.1.2",
     "unpkg-fs": "github:privatenumber/unpkg-fs",
+    "vm2": "^3.9.2",
     "webpack": "^5.0.0-beta.15"
   },
   "devDependencies": {
