@@ -41,7 +41,9 @@ module.exports = async (req, res) => {
 	const { pkgId, filePath } = fetchedPkg.resUrlParsed;
 	const { err, warnings, code } = await buildModule(pkgId, {
 		entry: filePath,
-		output: req.query,
+		options: {
+			min: req.query && ('min' in req.query),
+		},
 	}).catch(err => ({ err }));
 
 	if (err) {
@@ -54,8 +56,8 @@ module.exports = async (req, res) => {
 		console.log(pkgId, warnings.map(w => w.message));
 	}
 
-	res.setHeader('cache-control', fetchedPkg.headers['cache-control']);
-	res.setHeader('content-type', fetchedPkg.headers['content-type']);
+	res.setHeader('Cache-Control', fetchedPkg.headers['cache-control']);
+	res.setHeader('Content-Type', fetchedPkg.headers['content-type']);
 	res
 		.status(200)
 		.end(code);
