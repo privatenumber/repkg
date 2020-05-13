@@ -6,6 +6,10 @@
       "dest": "/api/serve-landing"
     },
     {
+      "src": "favicon.ico",
+      "dest": "/assets/favicon.ico"
+    },
+    {
       "headers": {
         "Access-Control-Allow-Origin": "*"
       },
