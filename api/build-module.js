@@ -25,7 +25,7 @@ module.exports = async (req, res) => {
 	// Redirect to UNPKG
 	if (
 		// If Browse
-		fetchedPkgUrl.path.startsWith('/browse')
+		fetchedPkgUrl.path.startsWith('/browse/')
 
 		// If source map
 		|| fetchedPkgUrl.path.endsWith('.map')
