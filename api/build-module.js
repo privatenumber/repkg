@@ -30,8 +30,8 @@ module.exports = async (req, res) => {
 		// If source map
 		|| fetchedPkgUrl.path.endsWith('.map')
 
-		// // If AMD (and has no CJS calls)
-		// || isAMD(fetchedPkg.body)
+		// If AMD (and has no CJS calls)
+		|| isAMD(fetchedPkg.body)
 	) {
 		return res.writeHead(302, {
 			Location: fetchedPkg.url,
