@@ -8,10 +8,10 @@ REPKG is a service that bundles npm packages to AMD on-demand. Powered by [UNPKG
 ## 👩‍💻 Usage
 Replace `UNPKG.com` with `REPKG.now.sh` to AMDify it!
 
-- **Bare specifier**: [unpkg.com/pretty-ms](https://unpkg.com/pretty-ms) → [repkg.now.sh/pretty-ms](https://repkg.now.sh/pretty-ms)
-- **Specific version**: [unpkg.com/urijs@1.19.2](https://unpkg.com/urijs@1.19.2) → [repkg.now.sh/urijs@1.19.2](https://repkg.now.sh/urijs@1.19.2)
-- **Deep import path**: [unpkg.com/axios@0.19.2/.../buildFullPath](https://unpkg.com/axios@0.19.2/lib/core/buildFullPath) → [repkg.now.sh/axios@0.19.2/.../buildFullPath](https://repkg.now.sh/axios@0.19.2/lib/core/buildFullPath)
-- (_Bonus_) **Minification**: Add `?min` to minify the asset (eg. [mem@6.1.0?min](https://repkg.now.sh/mem@6.1.0?min))
+- **Bare specifier**: [unpkg.com/pretty-ms](https://unpkg.com/pretty-ms) → [**repkg.now.sh/pretty-ms**](https://repkg.now.sh/pretty-ms) ✨
+- **Specific version**: [unpkg.com/urijs@1.19.2](https://unpkg.com/urijs@1.19.2) → [**repkg.now.sh/urijs@1.19.2**](https://repkg.now.sh/urijs@1.19.2) ✨
+- **Deep import path**: [axios@0.19.2/.../buildFullPath](https://unpkg.com/axios@0.19.2/lib/core/buildFullPath) → [**axios@0.19.2/.../buildFullPath**](https://repkg.now.sh/axios@0.19.2/lib/core/buildFullPath) ✨
+- (_Bonus_) **Minification (`?min`)**: [**mem@6.1.0?min**](https://repkg.now.sh/mem@6.1.0?min) ✨
 
 #### Request will redirect to UNPKG if...
   - the request hits UNPKG's `/browse/` page
