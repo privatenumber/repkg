@@ -3,7 +3,7 @@
 
 REPKG is a service that bundles npm packages to AMD on-demand. Powered by [UNPKG](https://unpkg.com).
 
-⚠️ _This service is for development purposes only and **should not** be used in production._
+<span style="font-family:apple color emoji">⚠️</span> _This service is for development purposes only and **should not** be used in production._
 
 ## 👩‍💻 Usage
 Replace `UNPKG.com` with `REPKG.now.sh` to AMDify it!

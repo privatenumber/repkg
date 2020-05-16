@@ -1,7 +1,13 @@
 {
   "name": "repkg",
   "version": "1.0.0",
-  "description": "",
+  "description": "🚚 On-demand AMD npm package bundling service",
+  "keywords": [
+    "package",
+    "service",
+    "webpack",
+    "amd"
+  ],
   "main": "index.js",
   "scripts": {
     "dev": "nodemon dev-server",
