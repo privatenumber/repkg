@@ -1,7 +1,7 @@
 # 🚚 REPKG [![GitHub stars](https://img.shields.io/github/stars/privatenumber/repkg.svg?style=social&label=Star&maxAge=2592000)](https://github.com/privatenumber/repkg)
 
 
-REPKG is a service that bundles npm packages to AMD on-demand. Powered by [UNPKG](https://unpkg.com).
+[REPKG](https://repkg.now.sh) is a service that bundles npm packages to AMD on-demand. Powered by [UNPKG](https://unpkg.com).
 
 <span style="font-family:apple color emoji">⚠️</span> _This service is for development purposes only and **should not** be used in production._
 
