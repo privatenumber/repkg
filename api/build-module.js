@@ -42,6 +42,8 @@ module.exports = async (req, res) => {
 	const { err, warnings, code } = await buildModule(pkgId, {
 		entry: filePath,
 		options: {
+			name: req.query.name,
+			type: req.query.type || 'umd',
 			min: req.query && ('min' in req.query),
 		},
 	}).catch(err => ({ err }));
